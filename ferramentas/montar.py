@@ -50,6 +50,7 @@ ICONES_NOVOS = {
     'i-x': '<symbol id="i-x" viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></symbol>',
     'i-telegram': '<symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM9.7 14.6l-.4 3.9-1.4-4.6 10.5-6.6-8.7 7.3Z"/></symbol>',
     'i-link': '<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4l-1.1 1.1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.1-1.1"/></symbol>',
+    'i-mais': '<symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>',
     'i-email': '<symbol id="i-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>',
 }
 
@@ -177,22 +178,30 @@ def lateral():
 
 
 def paginacao(arquivo, total):
-    def num(n, largo=False):
-        cls = ' class="so-largo"' if largo else ''
-        return f'<a{cls} href="{arquivo}.html" data-demo="Na versão final, abre a página {n}.">{n:,}</a>'.replace(',', '.')
-    partes = ['<span class="desligado" aria-disabled="true"><svg><use href="#i-voltar"/></svg><span class="paginacao__texto">Anterior</span></span>',
+    """Cápsula com as páginas no computador; no celular, "Página 1 de N" com setas
+    e o botão "Carregar mais notícias" (no protótipo, só mostram um aviso)."""
+    def fmt(n):
+        return f'{n:,}'.replace(',', '.')
+
+    def num(n):
+        return f'<a class="so-largo" href="{arquivo}.html" data-demo="Na versão final, abre a página {fmt(n)}.">{fmt(n)}</a>'
+    partes = ['<span class="paginacao__seta desligado" aria-disabled="true" aria-label="Página anterior"><svg><use href="#i-voltar"/></svg></span>',
               '<span aria-current="page">1</span>']
+    partes += [num(n) for n in range(2, min(total, 4) + 1)]
+    if total > 5:
+        partes.append('<span class="reticencias so-largo" aria-hidden="true">…</span>')
+    if total > 4:
+        partes.append(num(total))
+    partes.append(f'<span class="paginacao__info">Página <b>1</b> de <b>{fmt(total)}</b></span>')
     if total > 1:
-        partes += [num(2, True)] if total >= 2 else []
-        partes += [num(3, True)] if total >= 3 else []
-        if total > 4:
-            partes.append('<span class="reticencias" aria-hidden="true">…</span>')
-        if total > 3:
-            partes.append(num(total))
-        partes.append(f'<a href="{arquivo}.html" data-demo="Na versão final, abre a página 2."><span class="paginacao__texto">Próxima</span><svg><use href="#i-seta"/></svg></a>')
+        partes.append(f'<a class="paginacao__seta" href="{arquivo}.html" aria-label="Próxima página" data-demo="Na versão final, abre a página 2."><svg><use href="#i-seta"/></svg></a>')
     else:
-        partes.append('<span class="desligado" aria-disabled="true"><span class="paginacao__texto">Próxima</span><svg><use href="#i-seta"/></svg></span>')
-    return '<nav class="paginacao" aria-label="Páginas">' + ''.join(partes) + '</nav>'
+        partes.append('<span class="paginacao__seta desligado" aria-disabled="true" aria-label="Próxima página"><svg><use href="#i-seta"/></svg></span>')
+    mais = ''
+    if total > 1:
+        mais = ('<button class="btn btn--escuro so-celular" type="button" data-demo="Na versão final, as próximas notícias aparecem aqui mesmo, sem trocar de página.">'
+                'Carregar mais notícias<svg aria-hidden="true"><use href="#i-mais"/></svg></button>')
+    return ('<div class="paginacao-bloco">' + mais + '<nav class="paginacao" aria-label="Páginas">' + ''.join(partes) + '</nav></div>')
 
 
 # ------------------------------------------------ 3. páginas de editoria
@@ -332,6 +341,7 @@ conteudo = f'''
     <div class="tags"><span class="tags__rotulo">Assuntos</span>{tags}</div>
     <div class="compartilhar-fim">
       <p>Compartilhe esta notícia</p>
+      <a class="btn btn--zap" data-rede="whatsapp" href="#" target="_blank" rel="noopener"><span class="btn__bola"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg></span>Mandar no WhatsApp</a>
       {botoes_compartilhar()}
     </div>
   </article>
@@ -370,6 +380,7 @@ conteudo = f'''
   <header class="pagina-topo busca-topo">
     <h1 class="pagina-topo__titulo">Busca</h1>
     <form class="busca-grande" role="search" action="busca.html" method="get" data-busca-form>
+      <svg aria-hidden="true"><use href="#i-busca"/></svg>
       <label class="so-leitor" for="busca-pagina">O que você procura?</label>
       <input id="busca-pagina" type="search" name="s" value="Cuiabá" placeholder="Digite um assunto, nome ou cidade" autocomplete="off">
       <button class="btn btn--amarelo" type="submit">Buscar</button>
@@ -594,6 +605,7 @@ conteudo = f'''
     <h1 class="pagina-topo__titulo">Página não encontrada</h1>
     <p class="pagina-topo__texto">O endereço pode ter mudado ou a notícia saiu do ar. Busque o assunto ou volte para a página inicial.</p>
     <form class="busca-grande" role="search" action="busca.html" method="get">
+      <svg aria-hidden="true"><use href="#i-busca"/></svg>
       <label class="so-leitor" for="busca-404">Buscar no CanalMT</label>
       <input id="busca-404" type="search" name="s" placeholder="Digite um assunto, nome ou cidade" autocomplete="off">
       <button class="btn btn--amarelo" type="submit">Buscar</button>
