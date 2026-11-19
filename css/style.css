@@ -454,7 +454,7 @@ a.filtro { display: inline-flex; align-items: center; }
 
 /* 11.4 Paginação */
 .paginacao { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 6px; padding-block: 26px 6px; }
-.paginacao a, .paginacao span { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; height: 44px; padding: 0 12px; border: 1px solid var(--linha); border-radius: var(--raio-botao); background: var(--papel); font: 600 15px/1 var(--f-titulo); font-variant-numeric: tabular-nums; }
+.paginacao > a, .paginacao > span { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 44px; height: 44px; padding: 0 12px; border: 1px solid var(--linha); border-radius: var(--raio-botao); background: var(--papel); font: 600 15px/1 var(--f-titulo); font-variant-numeric: tabular-nums; }
 .paginacao a:hover { border-color: var(--texto); }
 .paginacao [aria-current] { border-color: var(--texto); background: var(--texto); color: var(--papel); }
 .paginacao .reticencias { min-width: 20px; padding: 0; border: 0; background: none; color: var(--suave); }
