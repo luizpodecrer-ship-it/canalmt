@@ -35,4 +35,4 @@ Cada espaço é `<div class="anuncio anuncio--FORMATO" data-posicao="NOME">`. Tr
 
 ## Fontes
 
-Archivo (títulos) e Source Sans 3 (texto), pelo Google Fonts.
+Figtree (títulos, peso 600) e Source Sans 3 (texto), pelo Google Fonts.
