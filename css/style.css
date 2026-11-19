@@ -216,7 +216,7 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .card { position: relative; display: flex; flex-direction: column; gap: 10px; }
 .card__foto { position: relative; overflow: hidden; border-radius: var(--raio); background: var(--anuncio); aspect-ratio: 16 / 10; }
 .card__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s cubic-bezier(.2, .8, .2, 1); }
-.card__titulo { font-weight: 600; font-size: 18px; line-height: 1.25; letter-spacing: -.01em; }
+.card__titulo { font-weight: 700; font-size: 18px; line-height: 1.25; letter-spacing: -.01em; }
 .card__titulo a::after { content: ""; position: absolute; inset: 0; z-index: 1; }   /* o cartão inteiro é clicável */
 .card__titulo a { background: linear-gradient(var(--amarelo), var(--amarelo)) 0 100% / 0 2px no-repeat; transition: background-size .3s; }
 .card__resumo { color: var(--suave); font-size: 16px; line-height: 1.45; }
@@ -247,7 +247,7 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .secao { padding-block: 22px; }
 .secao__topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--linha); position: relative; }
 .secao__topo::after { content: ""; position: absolute; left: 0; bottom: -1px; width: 56px; height: 4px; background: var(--amarelo); }
-.secao__titulo { font-weight: 600; font-size: 24px; line-height: 1; letter-spacing: -.01em; text-transform: uppercase; }
+.secao__titulo { font-weight: 700; font-size: 24px; line-height: 1; letter-spacing: -.01em; text-transform: uppercase; }
 .secao__mais { flex: none; display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font: 600 14px/1 var(--f-titulo); color: var(--suave); }
 .secao__mais svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; transition: transform .2s; }
 .secao__mais:hover { color: var(--texto); }
@@ -268,7 +268,7 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .slide::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(16, 17, 19, 0) 30%, rgba(16, 17, 19, .55) 58%, rgba(16, 17, 19, .94) 100%); }
 .slide__texto { position: absolute; inset: auto 0 0 0; z-index: 2; padding: 18px var(--borda) 46px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
-.slide__titulo { font-weight: 600; font-size: clamp(23px, 6.2vw, 30px); line-height: 1.1; letter-spacing: -.012em; text-shadow: 0 1px 12px rgba(0, 0, 0, .4); }
+.slide__titulo { font-weight: 700; font-size: clamp(23px, 6.2vw, 30px); line-height: 1.1; letter-spacing: -.012em; text-shadow: 0 1px 12px rgba(0, 0, 0, .4); }
 .slide__titulo a::after { content: ""; position: absolute; inset: -400px 0 0 0; }
 .slide__resumo { display: none; color: #dddcd7; max-width: 60ch; }
 .destaque__pontos { position: absolute; left: var(--borda); bottom: 16px; z-index: 3; display: flex; gap: 6px; }
@@ -341,7 +341,7 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .recentes li:first-child { border-top: 0; padding-top: 0; }
 .recentes time { font: 600 13.5px/1.4 var(--f-titulo); font-variant-numeric: tabular-nums; color: var(--suave); }
 .recentes time b { display: block; color: var(--texto); font-size: 15px; }
-.recentes a { font: 600 15.5px/1.28 var(--f-titulo); }
+.recentes a { font: 700 15.5px/1.28 var(--f-titulo); }
 .recentes a::after { content: ""; position: absolute; inset: 0; }
 .recentes li:hover a { text-decoration: underline; text-decoration-color: var(--amarelo); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 
@@ -356,7 +356,7 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .video__play { position: absolute; left: 50%; top: 44%; width: 68px; height: 68px; margin: -34px 0 0 -34px; border-radius: var(--raio-botao); background: var(--amarelo); color: #101113; display: grid; place-items: center; transition: transform .25s cubic-bezier(.3, 1.6, .5, 1); }
 .video:hover .video__play { transform: scale(1.12); }
 .video__play svg { width: 26px; height: 26px; margin-left: 4px; fill: currentColor; }
-.video__titulo { position: absolute; inset: auto 0 0 0; padding: 40px 18px 16px; background: linear-gradient(transparent, rgba(16, 17, 19, .92)); font: 600 18px/1.2 var(--f-titulo); }
+.video__titulo { position: absolute; inset: auto 0 0 0; padding: 40px 18px 16px; background: linear-gradient(transparent, rgba(16, 17, 19, .92)); font: 700 18px/1.2 var(--f-titulo); }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 /* 8.5 Variedades: carrossel de dedo no celular, grade no desktop */
