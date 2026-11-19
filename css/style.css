@@ -6,6 +6,13 @@
    Mobile first: os estilos de base valem para o celular; @media sobe a partir dali.
    ========================================================================== */
 
+/* Aeonik (texto corrido) é fonte paga e não está no Google Fonts.
+   Com a licença web, colocar os arquivos em fonts/ e tirar o comentário abaixo.
+   Até lá o texto aparece em Inter.
+@font-face { font-family: "Aeonik"; src: url("../fonts/aeonik-regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Aeonik"; src: url("../fonts/aeonik-bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+*/
+
 /* 1. Tokens --------------------------------------------------------------- */
 :root {
   /* layout: coluna de leitura + lateral de 300px, acentos em amarelo do logo */
@@ -21,8 +28,8 @@
   --anuncio: #eceae3;
   --erro: #b3261e;
 
-  --f-titulo: "Figtree", "Segoe UI", Roboto, Arial, sans-serif;
-  --f-texto: "Source Sans 3", "Segoe UI", Roboto, Arial, sans-serif;
+  --f-titulo: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+  --f-texto: "Aeonik", "Inter", "Segoe UI", Roboto, Arial, sans-serif;
 
   --largura: 1240px;
   --borda: 16px;

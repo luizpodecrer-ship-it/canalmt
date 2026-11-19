@@ -58,4 +58,5 @@ Cada espaço é `<div class="anuncio anuncio--FORMATO" data-posicao="NOME">`. Tr
 
 ## Fontes
 
-Figtree (títulos, peso 600) e Source Sans 3 (texto), pelo Google Fonts.
+- **Inter** (títulos, menu, botões e números), pesos 400 e 700, pelo Google Fonts.
+- **Aeonik** (texto corrido), pesos 400 e 700. É fonte paga da CoType Foundry e não está no Google Fonts: com a licença web, colocar `aeonik-regular.woff2` e `aeonik-bold.woff2` em `fonts/` e liberar o `@font-face` comentado no topo de `css/style.css`. Até lá, o texto cai para a Inter.
