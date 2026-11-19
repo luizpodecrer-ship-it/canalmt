@@ -1,6 +1,7 @@
 /* ==========================================================================
    CanalMT — comportamentos da página (JavaScript puro, sem biblioteca)
    Cada bloco é independente e só roda se o elemento existir na página.
+   Serve para todas as páginas: home, editorias, notícia, busca e institucionais.
    ========================================================================== */
 (function () {
   'use strict';
@@ -224,5 +225,243 @@
         b.addEventListener('click', function () { guarda.por('canalmt-cookies', b.getAttribute('data-cookies-ok')); ck.hidden = true; });
       });
     }
+  })();
+
+  /* ==== Páginas internas ==================================================== */
+
+  /* --- Aviso curto na parte de baixo da tela -------------------------------- */
+  var avisoEl = null, avisoRelogio = null;
+  function avisar(texto) {
+    if (!avisoEl) {
+      avisoEl = document.createElement('div');
+      avisoEl.className = 'aviso';
+      avisoEl.setAttribute('role', 'status');
+      document.body.appendChild(avisoEl);
+    }
+    avisoEl.textContent = texto;
+    avisoEl.classList.add('visivel');
+    clearTimeout(avisoRelogio);
+    avisoRelogio = setTimeout(function () { avisoEl.classList.remove('visivel'); }, 3400);
+  }
+
+  /* Links e botões que só existem na versão final (ex.: página 2 da editoria).
+     No WordPress, tirar o atributo data-demo e deixar o link normal. */
+  document.addEventListener('click', function (e) {
+    var alvo = e.target.closest && e.target.closest('[data-demo]');
+    if (!alvo) return;
+    e.preventDefault();
+    avisar(alvo.getAttribute('data-demo'));
+  });
+
+  function copiar(texto) {
+    function falhou() { avisar('Não deu para copiar. Copie o endereço na barra do navegador.'); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(function () { avisar('Link copiado.'); }, falhou);
+    } else falhou();
+  }
+
+  /* --- Barra de leitura da notícia ------------------------------------------ */
+  (function () {
+    var barra = $('[data-progresso]'), materia = $('[data-materia]');
+    if (!barra || !materia) return;
+    var marcado = false;
+    function medir() {
+      var r = materia.getBoundingClientRect(), vh = window.innerHeight;
+      var feito = (vh * 0.35 - r.top) / Math.max(r.height - vh * 0.5, 1);
+      barra.style.transform = 'scaleX(' + Math.min(1, Math.max(0, feito)) + ')';
+      marcado = false;
+    }
+    window.addEventListener('scroll', function () { if (!marcado) { marcado = true; requestAnimationFrame(medir); } }, { passive: true });
+    window.addEventListener('resize', medir);
+    medir();
+  })();
+
+  /* --- Tempo de leitura (200 palavras por minuto) --------------------------- */
+  $$('[data-tempo-leitura]').forEach(function (el) {
+    var alvo = $(el.getAttribute('data-tempo-leitura'));
+    if (!alvo) return;
+    var palavras = alvo.textContent.trim().split(/\s+/).length;
+    el.textContent = Math.max(1, Math.round(palavras / 200)) + ' min de leitura';
+  });
+
+  /* --- Compartilhar: os links recebem o endereço da página ao carregar ------ */
+  (function () {
+    var url = location.href.split('#')[0];
+    var titulo = (($('h1') || {}).textContent || document.title).trim();
+    var u = encodeURIComponent(url), t = encodeURIComponent(titulo);
+    var destinos = {
+      whatsapp: 'https://api.whatsapp.com/send?text=' + t + '%20' + u,
+      facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+      x: 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u,
+      telegram: 'https://t.me/share/url?url=' + u + '&text=' + t
+    };
+    $$('a[data-rede]').forEach(function (a) { a.href = destinos[a.getAttribute('data-rede')]; });
+    $$('[data-copiar-link]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (navigator.share && window.matchMedia('(pointer: coarse)').matches) {
+          navigator.share({ title: titulo, url: url }).catch(function () {});
+        } else copiar(url);
+      });
+    });
+  })();
+
+  /* --- Tamanho do texto da notícia (fica guardado no navegador) ------------- */
+  (function () {
+    var texto = $('[data-texto-materia]');
+    if (!texto) return;
+    var passos = [16, 18, 20, 22, 24];
+    var atual = passos.indexOf(parseInt(guarda.ler('canalmt-fonte'), 10));
+    var botoes = $$('[data-fonte]');
+    function aplicar(salvar) {
+      if (atual >= 0) texto.style.setProperty('--tam', passos[atual] + 'px');
+      botoes.forEach(function (b) {
+        var d = +b.getAttribute('data-fonte');
+        b.disabled = (d < 0 && atual === 0) || (d > 0 && atual === passos.length - 1);
+      });
+      if (salvar) guarda.por('canalmt-fonte', passos[atual]);
+    }
+    botoes.forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (atual < 0) atual = window.innerWidth >= 760 ? 2 : 1;
+        atual = Math.min(passos.length - 1, Math.max(0, atual + (+b.getAttribute('data-fonte'))));
+        aplicar(true);
+        avisar('Tamanho do texto: ' + (atual + 1) + ' de ' + passos.length);
+      });
+    });
+    aplicar(false);
+  })();
+
+  /* --- WhatsApp com máscara (65) 99999-9999 ---------------------------------- */
+  $$('input[data-zap]').forEach(function (c) {
+    c.addEventListener('input', function () {
+      var d = c.value.replace(/\D/g, '').slice(0, 11), s = d;
+      if (d.length > 2) s = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+      if (d.length > 6) s = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length - 4) + '-' + d.slice(-4);
+      c.value = s;
+    });
+  });
+
+  /* --- Formulários (Contato e Anuncie) ---------------------------------------
+     Confere os campos e mostra a confirmação. No WordPress, ligar ao plugin de
+     formulários (ex.: Contact Form 7) mantendo os mesmos nomes de campo. */
+  $$('form[data-formulario]').forEach(function (f) {
+    f.setAttribute('novalidate', '');
+    function valido(c) {
+      var v = c.value.trim();
+      if (c.type === 'checkbox') return c.checked;
+      if (c.hasAttribute('data-zap')) return v === '' ? !c.required : v.replace(/\D/g, '').length === 11;
+      if (!v) return !c.required;
+      if (c.type === 'email') return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      return true;
+    }
+    f.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var primeiro = null;
+      $$('[required], [data-zap]', f).forEach(function (c) {
+        var ok = valido(c), caixa = c.closest('.campo, .aceite');
+        if (caixa) caixa.classList.toggle('erro', !ok);
+        c.setAttribute('aria-invalid', ok ? 'false' : 'true');
+        if (!ok && !primeiro) primeiro = c;
+      });
+      if (primeiro) { primeiro.focus(); avisar('Confira os campos marcados em vermelho.'); return; }
+      var ok = $('[data-form-ok]', f.parentNode);
+      f.hidden = true;
+      if (ok) { ok.hidden = false; ok.focus(); ok.scrollIntoView({ block: 'center', behavior: poucoMovimento ? 'auto' : 'smooth' }); }
+    });
+    f.addEventListener('input', function (e) {
+      var caixa = e.target.closest('.campo, .aceite');
+      if (caixa && valido(e.target)) { caixa.classList.remove('erro'); e.target.setAttribute('aria-invalid', 'false'); }
+    });
+    $$('[data-form-de-novo]', f.parentNode).forEach(function (b) {
+      b.addEventListener('click', function () { f.reset(); f.hidden = false; b.closest('[data-form-ok]').hidden = true; $('input, select, textarea', f).focus(); });
+    });
+  });
+
+  /* --- Página de busca --------------------------------------------------------
+     Aqui a busca procura nas notícias de exemplo guardadas na própria página
+     (#noticias). No WordPress, a lista vem da busca do próprio site (?s=). */
+  (function () {
+    var lista = $('[data-busca-lista]');
+    if (!lista) return;
+    var dados = JSON.parse($('#noticias').textContent);
+    var campo = $('#busca-pagina'), resumo = $('[data-busca-resumo]');
+    var filtros = $('[data-busca-filtros]'), mais = $('[data-busca-mais]');
+    var termo = new URLSearchParams(location.search).get('s');
+    if (termo === null) termo = campo.value; else campo.value = termo;
+    var editoria = '', limite = 10;
+
+    function norm(t) { return t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+    function normLetra(t) { return Array.from(t).map(function (c) { var n = norm(c); return n.length === 1 ? n : c.toLowerCase(); }).join(''); }
+    function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function marcar(texto, palavras) {
+      var base = normLetra(texto), faixas = [], i = 0, saida = '';
+      palavras.forEach(function (p) {
+        var k = base.indexOf(p);
+        while (k >= 0) { faixas.push([k, k + p.length]); k = base.indexOf(p, k + p.length); }
+      });
+      faixas.sort(function (a, b) { return a[0] - b[0]; }).forEach(function (f) {
+        if (f[0] < i) return;
+        saida += esc(texto.slice(i, f[0])) + '<mark>' + esc(texto.slice(f[0], f[1])) + '</mark>';
+        i = f[1];
+      });
+      return saida + esc(texto.slice(i));
+    }
+    function cartao(n, palavras) {
+      return '<article class="card card--linha' + (n.foto ? '' : ' sem-foto') + '">' +
+        (n.foto ? '<div class="card__foto"><img src="' + esc(n.foto) + '" alt="" width="800" height="500" loading="lazy"></div>' : '') +
+        '<div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">' + esc(n.ed) + '</span>' +
+        '<time class="data">' + esc(n.data) + '</time></div>' +
+        '<h2 class="card__titulo"><a href="noticia.html">' + marcar(n.titulo, palavras) + '</a></h2>' +
+        (n.resumo ? '<p class="card__resumo">' + marcar(n.resumo, palavras) + '</p>' : '') + '</div></article>';
+    }
+    function buscar() {
+      var palavras = normLetra(termo.trim()).split(/\s+/).filter(function (p) { return p.length > 1; });
+      var achados = !palavras.length ? [] : dados.filter(function (n) {
+        var t = normLetra(n.titulo + ' ' + n.resumo + ' ' + n.ed);
+        return palavras.every(function (p) { return t.indexOf(p) >= 0; });
+      });
+      var conta = {};
+      achados.forEach(function (n) { conta[n.ed] = (conta[n.ed] || 0) + 1; });
+      if (editoria && !conta[editoria]) editoria = '';
+      var vistos = editoria ? achados.filter(function (n) { return n.ed === editoria; }) : achados;
+
+      filtros.innerHTML = achados.length < 2 ? '' :
+        ['<button class="filtro" type="button" data-ed="" aria-pressed="' + !editoria + '">Todas · ' + achados.length + '</button>']
+          .concat(Object.keys(conta).map(function (k) {
+            return '<button class="filtro" type="button" data-ed="' + esc(k) + '" aria-pressed="' + (editoria === k) + '">' + esc(k) + ' · ' + conta[k] + '</button>';
+          })).join('');
+      if (!palavras.length) resumo.textContent = 'Digite pelo menos duas letras para buscar.';
+      else if (achados.length) resumo.innerHTML = '<b>' + achados.length + '</b> ' + (achados.length === 1 ? 'notícia encontrada' : 'notícias encontradas') + ' para <b>' + esc(termo.trim()) + '</b>';
+      else resumo.textContent = '';
+
+      if (palavras.length && !achados.length) {
+        lista.innerHTML = '<div class="vazio"><h2>Nada encontrado para “' + esc(termo.trim()) + '”</h2>' +
+          '<p>Confira se a palavra está certa, tente um termo mais curto ou navegue pelas editorias.</p>' +
+          '<div class="subeditorias">' + $$('.editorias__lista a').slice(1, 7).map(function (a) {
+            return '<a class="filtro" href="' + a.getAttribute('href') + '">' + esc(a.textContent) + '</a>';
+          }).join('') + '</div></div>';
+        mais.innerHTML = '';
+      } else {
+        lista.innerHTML = vistos.slice(0, limite).map(function (n) { return cartao(n, palavras); }).join('');
+        mais.innerHTML = vistos.length > limite ? '<button class="btn btn--escuro" type="button">Mostrar mais notícias</button>' : '';
+      }
+      document.title = (termo.trim() ? termo.trim() + ' · ' : '') + 'Busca | CanalMT';
+    }
+    filtros.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-ed]');
+      if (!b) return;
+      editoria = b.getAttribute('data-ed'); limite = 10; buscar();
+    });
+    mais.addEventListener('click', function (e) {
+      if (!e.target.closest('button')) return;
+      limite += 10; buscar();
+    });
+    $('[data-busca-form]').addEventListener('submit', function (e) {
+      e.preventDefault();
+      termo = campo.value; editoria = ''; limite = 10;
+      try { history.replaceState(null, '', '?s=' + encodeURIComponent(termo.trim())); } catch (x) {}
+      buscar();
+    });
+    buscar();
   })();
 })();

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polícia | CanalMT</title>
+<meta name="description" content="Ocorrências, investigações e segurança pública em Mato Grosso. Notícias de Polícia no CanalMT.">
+<meta name="theme-color" content="#101113">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Logo e ícones: definidos uma vez e reaproveitados com <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo-canalmt" viewBox="0 0 682.1 273.79">
+    <g fill="currentColor">
+      <path d="M58.47,138.9q-20.4,0-33.68-12.96-13.12-12.79-13.12-33.2t13.28-33.2q13.44-13.12,34.17-13.12,13.61,0,24.7,6.48,11.09,6.48,16.44,18.14l-18.3,10.04q-8.1-13.44-22.51-13.44-11.02,0-17.98,7.29-7.13,7.13-7.13,17.81,0,11.02,6.97,18.14,7.12,7.13,17.65,7.13,6.96,0,13.28-3.73,6.32-3.72,9.23-9.55l18.47,10.85q-5.68,10.69-16.77,17Q72.08,138.9,58.47,138.9Z"/>
+      <path d="M174.44,59.22v-10.53h21.7v88.27h-21.7v-10.21q-11.34,12.31-28.18,12.31-19.12,0-31.42-13.28t-12.31-33.36q0-19.92,12.47-32.88,12.47-13.12,31.26-13.12Q162.78,46.42,174.44,59.22ZM174.76,92.74q0-10.36-7.13-17.97-6.96-7.45-17.65-7.45-10.85,0-17.81,7.45-6.81,7.45-6.81,17.97,0,10.69,6.97,18.14,6.96,7.45,17.65,7.45,10.69,0,17.65-7.45Q174.76,103.27,174.76,92.74Z"/>
+      <path d="M233.06,136.96h-22.83V48.69h22.35v12.31q3.56-6.64,11.01-10.69t16.68-4.05q14.42,0,24.46,9.56,10.04,9.55,10.04,27.21v53.93h-22.84v-47.78q0-10.36-5.02-16.11-5.02-5.75-13.6-5.75-9.07,0-14.66,6.23-5.59,6.24-5.59,16.12V136.96Z"/>
+      <path d="M375.1,59.22v-10.53h21.7v88.27h-21.7v-10.21q-11.34,12.31-28.18,12.31-19.11,0-31.42-13.28t-12.31-33.36q0-19.92,12.47-32.88,12.47-13.12,31.26-13.12Q363.44,46.42,375.1,59.22ZM375.42,92.74q0-10.36-7.12-17.97-6.97-7.45-17.66-7.45-10.85,0-17.81,7.45-6.8,7.45-6.8,17.97,0,10.69,6.96,18.14,6.96,7.45,17.65,7.45,10.69,0,17.66-7.45Q375.42,103.27,375.42,92.74Z"/>
+      <path d="M433.73,13.87v123.09h-22.84V13.87H433.73Z"/>
+    </g>
+    <g fill="#ffba00">
+      <path d="M554.55,46.26q15.87,0,25.75,9.88,10.2,9.88,10.2,27.53v53.29h-22.83v-49.08q0-9.87-4.78-15.22t-12.88-5.34q-8.74,0-14.09,5.75-5.34,5.75-5.34,15.46v48.43h-22.84v-48.91q0-9.72-4.78-15.23-4.77-5.5-13.04-5.5-8.42,0-13.84,5.83-5.43,5.83-5.43,15.54v48.27h-22.83V48.69h22.35v12.63q3.72-6.96,11.01-11.09,7.29-4.13,15.87-3.97,8.42,0,15.47,4.05,7.04,4.05,10.44,11.5,4.86-7.29,13.29-11.42Q544.66,46.26,554.55,46.26Z"/>
+      <path d="M659.66,113.8l6.8,17.97q-11.02,7.29-26.07,7.29-15.23,0-23-8.82t-7.78-26v-36.44h-14.41v-19.11h14.57v-31.26h22.68v31.26h29.15v19.11h-29.15v34.98q0,15.55,12.47,15.55Q651.72,118.33,659.66,113.8Z"/>
+      <polygon points="14.39 165.16 441.41 165.16 477.84 200.72 477.84 165.16 666.95 165.16 666.95 194.51 504.37 194.51 504.37 263.94 432.12 191.69 14.39 191.69 14.39 165.16"/>
+    </g>
+  </symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+  <symbol id="i-busca" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+  <symbol id="i-fechar" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-lua" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+  <symbol id="i-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-voltar" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-cima" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l13-7.5z"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M13.5 21v-7.5H16l.5-3h-3V8.6c0-.9.3-1.6 1.6-1.6h1.5V4.3c-.3 0-1.2-.1-2.2-.1-2.3 0-3.9 1.4-3.9 4v2.3H8v3h2.5V21z"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.2 14.3L2.5 21.5l4.8-1.3A9.5 9.5 0 1 0 12 2.5Zm0 17.3c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-2.8.8.8-2.7-.2-.3A7.8 7.8 0 1 1 12 19.8Zm4.3-5.8c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.7.9c-.1.2-.3.2-.5.1a6.4 6.4 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.7-1.7c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM9.7 14.6l-.4 3.9-1.4-4.6 10.5-6.6-8.7 7.3Z"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4l-1.1 1.1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.1-1.1"/></symbol>
+  <symbol id="i-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>
+</svg>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- ======================= CABEÇALHO ======================= -->
+<header class="cabecalho" data-cabecalho>
+  <div class="container cabecalho__linha">
+    <button class="btn-icone so-celular" style="margin-left:-10px" type="button" aria-label="Abrir o menu" aria-controls="gaveta" aria-expanded="false" data-abre-menu><svg><use href="#i-menu"/></svg></button>
+    <div class="cabecalho__marca">
+      <a class="logo" href="index.html" aria-label="CanalMT, página inicial"><svg viewBox="0 0 682.1 273.79" role="img"><use href="#logo-canalmt"/></svg></a>
+      <!-- Data e hora de Cuiabá, preenchidas pelo js/main.js -->
+      <p class="agora" aria-label="Data e hora em Cuiabá">
+        <span class="agora__data"><span class="so-desktop" data-data-longa>Quinta-feira, 19 de novembro de 2026</span><span class="so-celular" data-data-curta>Qui, 19 nov</span></span>
+        <span class="agora__hora">Cuiabá <b data-hora>--:--</b></span>
+      </p>
+    </div>
+    <div class="cabecalho__acoes">
+      <nav class="cabecalho__links so-desktop" aria-label="Institucional">
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="anuncie.html">Anuncie</a>
+        <a href="contato.html">Contato</a>
+        <a class="btn-icone btn-icone--p" href="https://www.facebook.com/canalmt" target="_blank" rel="noopener" aria-label="CanalMT no Facebook"><svg><use class="i-cheio" href="#i-facebook"/></svg></a>
+      </nav>
+      <form class="busca-linha so-desktop" role="search" action="busca.html" method="get">
+        <label class="so-leitor" for="busca-topo">Buscar no CanalMT</label>
+        <input id="busca-topo" type="search" name="s" placeholder="Buscar notícias" autocomplete="off">
+        <button class="btn-icone btn-icone--p" type="submit" aria-label="Buscar"><svg><use href="#i-busca"/></svg></button>
+      </form>
+      <button class="btn-icone so-celular" type="button" aria-label="Buscar" data-abre-menu="busca"><svg><use href="#i-busca"/></svg></button>
+      <button class="btn-icone tema" type="button" aria-label="Trocar entre tema claro e escuro" data-tema><svg class="i-lua"><use href="#i-lua"/></svg><svg class="i-sol"><use href="#i-sol"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- ======================= MENU DE EDITORIAS ======================= -->
+<nav class="editorias" aria-label="Editorias">
+  <div class="container">
+    <ul class="editorias__lista">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="politica.html">Política</a></li>
+      <li><a href="geral.html">Geral</a></li>
+      <li><a href="policia.html" aria-current="page">Polícia</a></li>
+      <li><a href="economia.html">Economia</a></li>
+      <li><a href="agronegocio.html">Agronegócio</a></li>
+      <li><a href="esporte.html">Esporte</a></li>
+      <li><a href="saude.html">Saúde</a></li>
+      <li><a href="educacao.html">Educação</a></li>
+      <li><a href="brasil.html">Brasil</a></li>
+      <li><a href="mundo.html">Mundo</a></li>
+      <li><a href="artigos.html">Artigos</a></li>
+      <li><a href="videos.html">Vídeos</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Gaveta do menu (celular) -->
+<div class="gaveta" id="gaveta" data-gaveta>
+  <div class="gaveta__fundo" data-fecha-menu></div>
+  <div class="gaveta__painel" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="gaveta__topo">
+      <a class="logo" href="index.html" aria-label="CanalMT"><svg viewBox="0 0 682.1 273.79" style="height:40px"><use href="#logo-canalmt"/></svg></a>
+      <button class="btn-icone" type="button" aria-label="Fechar o menu" data-fecha-menu><svg><use href="#i-fechar"/></svg></button>
+    </div>
+    <form class="gaveta__busca" role="search" action="busca.html" method="get">
+      <label class="so-leitor" for="busca-gaveta">Buscar no CanalMT</label>
+      <input id="busca-gaveta" type="search" name="s" placeholder="Buscar notícias" autocomplete="off">
+      <button class="btn-icone" type="submit" aria-label="Buscar"><svg><use href="#i-busca"/></svg></button>
+    </form>
+    <div>
+      <p class="gaveta__titulo">Notícias</p>
+      <ul class="gaveta__lista">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="geral.html">Geral</a></li>
+        <li><a href="policia.html" aria-current="page">Polícia</a></li>
+        <li><a href="economia.html">Economia</a></li>
+        <li><a href="agronegocio.html">Agronegócio</a></li>
+        <li><a href="esporte.html">Esporte</a></li>
+        <li><a href="saude.html">Saúde</a></li>
+        <li><a href="educacao.html">Educação</a></li>
+        <li><a href="brasil.html">Brasil</a></li>
+        <li><a href="mundo.html">Mundo</a></li>
+        <li><a href="artigos.html">Artigos</a></li>
+        <li><a href="videos.html">Vídeos</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="gaveta__titulo">CanalMT</p>
+      <ul class="gaveta__lista">
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="anuncie.html">Anuncie</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </div>
+    <div class="gaveta__rodape">
+      <span data-hoje>Cuiabá, 19 de novembro de 2026</span>
+      <a class="btn-icone" href="https://www.facebook.com/canalmt" target="_blank" rel="noopener" aria-label="CanalMT no Facebook"><svg><use class="i-cheio" href="#i-facebook"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<!-- PUBLICIDADE 1 · topo -->
+<div class="container anuncio-faixa">
+  <div class="anuncio anuncio--faixa" data-posicao="topo"><span><span class="anuncio__rotulo">Publicidade · Topo</span><span class="anuncio__medida"><span class="so-desktop">1080 × 110</span><span class="so-celular">320 × 100</span></span></span></div>
+</div>
+
+<main id="conteudo">
+<div class="container">
+  <nav aria-label="Você está em"><ol class="trilha"><li><a href="index.html">Início</a></li><li><a href="geral.html">Geral</a></li><li><span aria-current="page">Polícia</span></li></ol></nav>
+  <header class="pagina-topo">
+    <h1 class="pagina-topo__titulo">Polícia</h1>
+    <p class="pagina-topo__texto">Ocorrências, investigações e segurança pública em Mato Grosso.</p>
+    
+  </header>
+</div>
+
+<div class="container corpo">
+  <div>
+    <section class="secao" aria-label="Notícias de Polícia">
+      <div class="arquivo">
+        <article class="card card--abre sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2022-03-27">27/03/2022 · 16h29</time></div><h2 class="card__titulo"><a href="noticia.html">Homem suspeito de aplicar golpes em site de vendas é preso em hotel em MT</a></h2><p class="card__resumo">Um homem de 30 anos que aplicava golpes pela internet em um site de vendas foi preso na sexta-feira (25) suspeito de praticar estelionato em Barra do Garças…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2022-03-26">26/03/2022 · 15h35</time></div><h2 class="card__titulo"><a href="noticia.html">Guarda de escola é preso suspeito de estuprar menina de 9 anos em banheiro da unidade em MT</a></h2><p class="card__resumo">O guarda de uma escola foi preso nessa sexta-feira (25) suspeito de estuprar uma menina de 9 anos no banheiro do colégio, em Lucas do Rio Verde, a…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2022-03-23">23/03/2022 · 09h26</time></div><h2 class="card__titulo"><a href="noticia.html">Câmera de segurança flagra ladrão ajudando idosa a caminhar durante assalto em SP</a></h2><p class="card__resumo">Imagens de câmera de segurança registraram um ladrão ajudando uma idosa de 85 anos, rendida durante um assalto, a andar. O caso ocorreu em Guaíra, no…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2022-03-21">21/03/2022 · 06h11</time></div><h2 class="card__titulo"><a href="noticia.html">Mulher que matou gato e filmou crime é presa pela Polícia em VG</a></h2><p class="card__resumo">Uma mulher de 34 anos foi presa por matar um gato neste sábado (19) em Várzea Grande. Ela gravou vídeos antes e após ter cometido o…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2021-11-29">29/11/2021 · 16h18</time></div><h2 class="card__titulo"><a href="noticia.html">Adolescentes roubam caminhonete de homem com quem passaram a noite em MT</a></h2><p class="card__resumo">Três adolescentes roubaram uma caminhonete S-10 na manhã deste domingo (28), em Lucas do Rio Verde, a 360 km de Cuiabá. Os adolescentes disseram a polícia que…</p></div></article>
+        <div class="anuncio-lista so-celular"><div class="anuncio anuncio--retangulo" data-posicao="celular-meio"><span><span class="anuncio__rotulo">Publicidade</span><span class="anuncio__medida">300 × 250</span></span></div></div>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2021-11-29">29/11/2021 · 15h53</time></div><h2 class="card__titulo"><a href="noticia.html">Filho esfaqueia e mata o pai de 83 anos ao vê-lo agredir a mãe</a></h2><p class="card__resumo">Um homem de 53 anos foi preso nessa quinta-feira (25) após dar uma facada e acabar matando o próprio pai, de 83 anos. O crime aconteceu na…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2021-11-29">29/11/2021 · 15h50</time></div><h2 class="card__titulo"><a href="noticia.html">Trotes: pessoa liga mais de 200 vezes para batalhão da PM e atrapalha serviço policial</a></h2><p class="card__resumo">O batalhão da Polícia Militar do Bairro Parque das Mansões, em Tangará da Serra (250 km de Cuiabá), foi alvo de mais de 200 trotes entre os…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2021-11-11">11/11/2021 · 10h59</time></div><h2 class="card__titulo"><a href="noticia.html">Mulher extorque padre após descobrir conversas íntimas entre o religioso e o marido dela</a></h2><p class="card__resumo">Uma moradora de Pindorama, cidade com pouco mais de 17 mil habitantes localizada na região de São José do Rio Preto (a 437 km de São Paulo…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2021-11-04">04/11/2021 · 09h56</time></div><h2 class="card__titulo"><a href="noticia.html">Homem que estava estuprando animais é preso ao ser flagrado atacando bezerro</a></h2><p class="card__resumo">Um homem de 59 anos foi preso no fim da noite dessa terça-feira (2) após ser flagrado por um grupo de pessoas em um curral, no meio…</p></div></article>
+        <article class="card card--linha sem-foto"><div class="card__corpo"><div class="card__meta"><span class="chapeu chapeu--linha">Polícia</span><time class="data" datetime="2021-10-25">25/10/2021 · 15h43</time></div><h2 class="card__titulo"><a href="noticia.html">Em briga, mulher usa furadeira como “arma” e atinge marido na cabeça</a></h2><p class="card__resumo">Um homem de 26 anos teve o crânio perfurado pela esposa na noite deste sábado (23), durante uma briga no bairro Cidade Nova, em Nova Mutum (264 km…</p></div></article>
+      </div>
+      <nav class="paginacao" aria-label="Páginas"><span class="desligado" aria-disabled="true"><svg><use href="#i-voltar"/></svg><span class="paginacao__texto">Anterior</span></span><span aria-current="page">1</span><a class="so-largo" href="policia.html" data-demo="Na versão final. abre a página 2.">2</a><a class="so-largo" href="policia.html" data-demo="Na versão final. abre a página 3.">3</a><span class="reticencias" aria-hidden="true">…</span><a href="policia.html" data-demo="Na versão final. abre a página 128.">128</a><a href="policia.html" data-demo="Na versão final, abre a página 2."><span class="paginacao__texto">Próxima</span><svg><use href="#i-seta"/></svg></a></nav>
+    </section>
+  </div>
+  <aside class="lateral" aria-label="Lateral">
+    <div class="anuncio anuncio--retangulo" data-posicao="lateral-cima"><span><span class="anuncio__rotulo">Publicidade · Lateral 1</span><span class="anuncio__medida">300 × 250</span></span></div>
+    <div class="lateral__fixo">
+      <section class="painel" aria-labelledby="t-recentes">
+        <div class="secao__topo"><h2 class="secao__titulo" id="t-recentes" style="font-size:20px">Últimas notícias</h2></div>
+        <ol class="recentes"><li><time datetime="2026-11-19T05:56-04:00"><b>05h56</b>19/11</time><a href="noticia.html">Dólar sobe para R$ 5,87 com expectativa sobre votação de ajuste fiscal</a></li><li><time datetime="2026-11-18T17:16-04:00"><b>17h16</b>18/11</time><a href="noticia.html">Mato Grosso registra mais de 2 milhões de pessoas ocupadas e tem a 3ª menor taxa de desemprego do país</a></li><li><time datetime="2026-11-18T17:14-04:00"><b>17h14</b>18/11</time><a href="noticia.html">Detran orienta cidadãos sobre a importância de manter os dados cadastrais atualizados</a></li><li><time datetime="2026-11-18T17:13-04:00"><b>17h13</b>18/11</time><a href="noticia.html">Equipes do Governo de MT descartam rompimento de barragem; fortes chuvas provocaram alagamentos</a></li><li><time datetime="2026-11-18T15:51-04:00"><b>15h51</b>18/11</time><a href="noticia.html">Primeira-dama Samantha Iris está no Distrito do Aguaçu prestando assistência às famílias atingidas pelas chuvas</a></li></ol>
+      </section>
+      <div class="anuncio anuncio--retangulo" data-posicao="lateral-baixo"><span><span class="anuncio__rotulo">Publicidade · Lateral 2</span><span class="anuncio__medida">300 × 250</span></span></div>
+    </div>
+  </aside>
+</div>
+
+<div class="container anuncio-faixa">
+  <div class="anuncio anuncio--faixa" data-posicao="rodape"><span><span class="anuncio__rotulo">Publicidade · Rodapé</span><span class="anuncio__medida"><span class="so-desktop">1080 × 110</span><span class="so-celular">320 × 100</span></span></span></div>
+</div>
+</main>
+
+<!-- ======================= RODAPÉ ======================= -->
+<footer class="rodape">
+  <div class="container rodape__grade">
+    <div>
+      <a class="logo" href="index.html" aria-label="CanalMT"><svg viewBox="0 0 682.1 273.79"><use href="#logo-canalmt"/></svg></a>
+      <p>Compromisso com a informação.</p>
+      <p><a href="mailto:contato@canalmt.com.br">contato@canalmt.com.br</a></p>
+      <div class="rodape__redes">
+        <a class="btn-icone" href="https://www.facebook.com/canalmt" target="_blank" rel="noopener" aria-label="CanalMT no Facebook"><svg><use class="i-cheio" href="#i-facebook"/></svg></a>
+      </div>
+    </div>
+    <nav aria-label="Editorias no rodapé">
+      <h2 class="rodape__titulo">Notícias</h2>
+      <ul class="rodape__links">
+        <li><a href="politica.html">Política</a></li>
+        <li><a href="geral.html">Geral</a></li>
+        <li><a href="policia.html">Polícia</a></li>
+        <li><a href="economia.html">Economia</a></li>
+        <li><a href="agronegocio.html">Agronegócio</a></li>
+        <li><a href="esporte.html">Esporte</a></li>
+        <li><a href="saude.html">Saúde</a></li>
+        <li><a href="educacao.html">Educação</a></li>
+        <li><a href="brasil.html">Brasil</a></li>
+        <li><a href="mundo.html">Mundo</a></li>
+        <li><a href="artigos.html">Artigos</a></li>
+        <li><a href="videos.html">Vídeos</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Institucional no rodapé">
+      <h2 class="rodape__titulo">CanalMT</h2>
+      <ul>
+        <li><a style="display:flex;align-items:center;min-height:40px" href="quem-somos.html">Quem Somos</a></li>
+        <li><a style="display:flex;align-items:center;min-height:40px" href="anuncie.html">Anuncie</a></li>
+        <li><a style="display:flex;align-items:center;min-height:40px" href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <div>
+      <h2 class="rodape__titulo">Assuntos</h2>
+      <div class="rodape__tags">
+        <a href="busca.html?s=Assembleia%20Legislativa">Assembleia Legislativa</a>
+        <a href="busca.html?s=Cuiab%C3%A1">Cuiabá</a>
+        <a href="busca.html?s=V%C3%A1rzea%20Grande">Várzea Grande</a>
+        <a href="busca.html?s=Governo">Governo</a>
+        <a href="busca.html?s=Deputados">Deputados</a>
+        <a href="busca.html?s=TCE">TCE</a>
+        <a href="busca.html?s=MT">MT</a>
+      </div>
+    </div>
+  </div>
+  <div class="container rodape__fim">
+    <span>© <span data-ano>2026</span> CanalMT. Todos os direitos reservados.</span>
+    <a href="https://wp.me/PcJ7Tz-flt">Política de Privacidade</a>
+  </div>
+</footer>
+
+<!-- PUBLICIDADE 8 · fixa no pé da tela, só no celular, com botão de fechar -->
+<div class="ancora" data-ancora hidden>
+  <div class="anuncio anuncio--ancora" data-posicao="celular-fixo"><span><span class="anuncio__rotulo">Publicidade · 320 × 50</span></span></div>
+  <button class="btn-icone ancora__fechar" type="button" aria-label="Fechar o anúncio" data-fecha-ancora><svg><use href="#i-fechar"/></svg></button>
+</div>
+
+<button class="subir" type="button" aria-label="Voltar ao topo" data-subir><svg><use href="#i-cima"/></svg></button>
+
+<!-- Aviso de cookies (LGPD) -->
+<div class="cookies" role="dialog" aria-label="Aviso de cookies" data-cookies hidden>
+  <p>Usamos cookies para o site funcionar e para entender como você navega. Veja a <a href="https://wp.me/PcJ7Tz-flt">Política de Privacidade</a>.</p>
+  <div class="cookies__botoes">
+    <button class="btn btn--amarelo" type="button" data-cookies-ok="sim">Aceito</button>
+    <button class="btn btn--vazado" type="button" data-cookies-ok="nao">Não aceito</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
