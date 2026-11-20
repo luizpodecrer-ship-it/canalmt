@@ -386,6 +386,10 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .rodape__tags a:hover { border-color: var(--amarelo); }
 .rodape__redes { display: flex; gap: 6px; margin-top: 14px; margin-left: -10px; }
 .rodape__fim { border-top: 1px solid #26282d; padding-block: 16px calc(16px + var(--ancora, 0px)); font-size: 14px; color: #8f9197; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+.rodape__direita { display: inline-flex; align-items: center; gap: 14px; }
+.assinatura { display: inline-flex; padding: 6px; margin: -6px; border-radius: 50%; color: #6b6e75; transition: color .2s, transform .25s var(--mola); }
+.assinatura svg { width: 13px; height: 16px; fill: currentColor; }
+.rodape .assinatura:hover, .rodape .assinatura:focus-visible { color: #c6f567; transform: scale(1.12); }
 @media (min-width: 760px) { .rodape__grade { grid-template-columns: 1.3fr 1fr 1fr; gap: 40px; padding-block: 48px 36px; } }
 @media (min-width: 1000px) { .rodape__grade { grid-template-columns: 1.3fr 1.1fr .8fr 1.2fr; } }
 
