@@ -413,9 +413,9 @@ def contato_itens():
           <span class="contato-item__icone"><svg><use href="#i-email"/></svg></span>
           <span><small>E-mail</small><b>contato@canalmt.com.br</b></span>
         </a>
-        <a class="contato-item" href="https://www.instagram.com/canalmt/" target="_blank" rel="noopener">
+        <a class="contato-item" href="https://www.instagram.com/canal_mt/" target="_blank" rel="noopener">
           <span class="contato-item__icone"><svg><use href="#i-instagram"/></svg></span>
-          <span><small>Instagram</small><b>@canalmt</b></span>
+          <span><small>Instagram</small><b>@canal_mt</b></span>
         </a>
         <a class="contato-item" href="https://www.facebook.com/canalmt" target="_blank" rel="noopener">
           <span class="contato-item__icone"><svg><use class="i-cheio" href="#i-facebook"/></svg></span>
