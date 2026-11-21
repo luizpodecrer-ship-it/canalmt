@@ -221,7 +221,8 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .rede-canal[data-marca="instagram"] { --cor: #d62976; }
 .rede-canal[data-marca="facebook"] { --cor: #1877f2; }
 .rede-canal[data-marca="youtube"] { --cor: #ff0000; }
-.redes-canal .rede-canal:hover, .redes-canal .rede-canal:focus-visible { background: var(--cor); color: #fff; transform: translateY(-2px); }
+.redes-canal a.rede-canal:hover, .redes-canal a.rede-canal:focus-visible { background: var(--cor); color: #fff; transform: translateY(-2px); }
+/* Facebook e YouTube ainda sem endereço: ícone sem link e sem efeito de toque */
 .gaveta .rede-canal, .rodape .rede-canal { width: 44px; height: 44px; background: #1f2126; color: #e6e5e0; }
 
 /* 7. Componentes de notícia ----------------------------------------------- */

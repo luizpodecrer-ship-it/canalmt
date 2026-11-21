@@ -416,14 +416,6 @@ def contato_itens():
         <a class="contato-item" href="https://www.instagram.com/canal_mt/" target="_blank" rel="noopener">
           <span class="contato-item__icone"><svg><use href="#i-instagram"/></svg></span>
           <span><small>Instagram</small><b>@canal_mt</b></span>
-        </a>
-        <a class="contato-item" href="https://www.facebook.com/canalmt" target="_blank" rel="noopener">
-          <span class="contato-item__icone"><svg><use class="i-cheio" href="#i-facebook"/></svg></span>
-          <span><small>Facebook</small><b>facebook.com/canalmt</b></span>
-        </a>
-        <a class="contato-item" href="https://www.youtube.com/@canalmt" target="_blank" rel="noopener">
-          <span class="contato-item__icone"><svg><use class="i-cheio" href="#i-youtube"/></svg></span>
-          <span><small>YouTube</small><b>youtube.com/@canalmt</b></span>
         </a>'''
 
 

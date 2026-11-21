@@ -58,8 +58,7 @@ Cada espaço é `<div class="anuncio anuncio--FORMATO" data-posicao="NOME">`. Tr
 
 ## Redes sociais
 
-Instagram, Facebook e YouTube aparecem no topo (computador), na gaveta do menu (celular), no rodapé e nos cartões de contato (Quem Somos, Anuncie, Contato).
-Endereços em uso: `instagram.com/canal_mt`, `facebook.com/canalmt` e `youtube.com/@canalmt`. Para trocar, editar o bloco `redes-canal` do `index.html` e a função `contato_itens()` em `ferramentas/montar.py`, e rodar `python3 ferramentas/montar.py`.
+O Instagram (`instagram.com/canal_mt`) aparece no topo (computador), na gaveta do menu (celular), no rodapé e nos cartões de contato (Quem Somos, Anuncie, Contato). Facebook e YouTube aparecem só como ícone, sem link, até o CanalMT definir os endereços: para ligar, trocar o `<span class="rede-canal" ...>` de cada um por `<a class="rede-canal" ... href="...">` no `index.html` e rodar `python3 ferramentas/montar.py`.
 
 ## Fontes
 
