@@ -56,6 +56,11 @@ Cada espaço é `<div class="anuncio anuncio--FORMATO" data-posicao="NOME">`. Tr
 | `celular-meio` | não aparece | 300 × 250 |
 | `celular-fixo` (pé da tela, com fechar) | não aparece | 320 × 50 |
 
+## Redes sociais
+
+Instagram, Facebook e YouTube aparecem no topo (computador), na gaveta do menu (celular), no rodapé e nos cartões de contato (Quem Somos, Anuncie, Contato).
+Endereços em uso: `instagram.com/canalmt`, `facebook.com/canalmt` e `youtube.com/@canalmt`. Para trocar, editar o bloco `redes-canal` do `index.html` e a função `contato_itens()` em `ferramentas/montar.py`, e rodar `python3 ferramentas/montar.py`.
+
 ## Fontes
 
 - **Inter** (títulos, menu, botões e números), pesos 400 e 700, pelo Google Fonts.

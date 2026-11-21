@@ -50,6 +50,7 @@ ICONES_NOVOS = {
     'i-x': '<symbol id="i-x" viewBox="0 0 24 24"><path d="M17.8 3h3.1l-6.8 7.8L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.3-8.3L2 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></symbol>',
     'i-telegram': '<symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21.4 4.2 2.9 11.3c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM9.7 14.6l-.4 3.9-1.4-4.6 10.5-6.6-8.7 7.3Z"/></symbol>',
     'i-link': '<symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3.2-3.2a4.5 4.5 0 0 0-6.4-6.4l-1.1 1.1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3.2 3.2a4.5 4.5 0 0 0 6.4 6.4l1.1-1.1"/></symbol>',
+    'i-youtube': '<symbol id="i-youtube" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3L10 15Z"/></symbol>',
     'i-mais': '<symbol id="i-mais" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>',
     'i-email': '<symbol id="i-email" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></symbol>',
 }
@@ -412,9 +413,17 @@ def contato_itens():
           <span class="contato-item__icone"><svg><use href="#i-email"/></svg></span>
           <span><small>E-mail</small><b>contato@canalmt.com.br</b></span>
         </a>
+        <a class="contato-item" href="https://www.instagram.com/canalmt/" target="_blank" rel="noopener">
+          <span class="contato-item__icone"><svg><use href="#i-instagram"/></svg></span>
+          <span><small>Instagram</small><b>@canalmt</b></span>
+        </a>
         <a class="contato-item" href="https://www.facebook.com/canalmt" target="_blank" rel="noopener">
           <span class="contato-item__icone"><svg><use class="i-cheio" href="#i-facebook"/></svg></span>
           <span><small>Facebook</small><b>facebook.com/canalmt</b></span>
+        </a>
+        <a class="contato-item" href="https://www.youtube.com/@canalmt" target="_blank" rel="noopener">
+          <span class="contato-item__icone"><svg><use class="i-cheio" href="#i-youtube"/></svg></span>
+          <span><small>YouTube</small><b>youtube.com/@canalmt</b></span>
         </a>'''
 
 

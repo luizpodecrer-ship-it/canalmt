@@ -187,9 +187,11 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
   .busca-x input::placeholder { color: var(--suave); }
   .busca-x input::-webkit-search-cancel-button { display: none; }
   .cabecalho__links { align-items: center; gap: 20px; margin-right: 12px; font: 600 14px/1 var(--f-titulo); color: var(--suave); white-space: nowrap; }
-  .cabecalho__links a:not(.btn-icone):hover { color: var(--texto); text-decoration: underline; text-decoration-color: var(--amarelo); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .cabecalho__links a:hover { color: var(--texto); text-decoration: underline; text-decoration-color: var(--amarelo); text-decoration-thickness: 2px; text-underline-offset: 4px; }
 }
 @media (min-width: 1120px) { .cabecalho__links { display: flex; } }
+.cabecalho .redes-canal { display: none; }
+@media (min-width: 900px) { .cabecalho .redes-canal { display: flex; margin-right: 6px; } }
 @media (min-width: 900px) and (max-width: 1180px) {
   .editorias__lista a { padding-inline: 8px; font-size: 13px; }
   .editorias__lista a::after { left: 8px; right: 8px; }
@@ -212,6 +214,15 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .gaveta__lista--uma { grid-template-columns: 1fr; }
 .gaveta__lista a:active { color: var(--amarelo); }
 .gaveta__rodape { margin-top: auto; display: flex; align-items: center; justify-content: space-between; color: #a5a7ad; font-size: 14px; }
+/* Redes sociais do CanalMT (topo, gaveta do celular e rodapé) */
+.redes-canal { display: flex; align-items: center; gap: 6px; }
+.rede-canal { --cor: var(--texto); display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; color: var(--suave); transition: background .2s, color .2s, transform .25s var(--mola); }
+.rede-canal svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.rede-canal[data-marca="instagram"] { --cor: #d62976; }
+.rede-canal[data-marca="facebook"] { --cor: #1877f2; }
+.rede-canal[data-marca="youtube"] { --cor: #ff0000; }
+.redes-canal .rede-canal:hover, .redes-canal .rede-canal:focus-visible { background: var(--cor); color: #fff; transform: translateY(-2px); }
+.gaveta .rede-canal, .rodape .rede-canal { width: 44px; height: 44px; background: #1f2126; color: #e6e5e0; }
 
 /* 7. Componentes de notícia ----------------------------------------------- */
 .chapeu { display: inline-block; font: 700 11.5px/1 var(--f-titulo); letter-spacing: .1em; text-transform: uppercase; color: var(--texto); background: var(--amarelo); color: #101113; padding: 5px 7px; border-radius: 3px; }
@@ -384,7 +395,7 @@ h1, h2, h3, h4 { font-family: var(--f-titulo); text-wrap: balance; }
 .rodape__tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .rodape__tags a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid #33363c; border-radius: var(--raio-botao); font-size: 14px; }
 .rodape__tags a:hover { border-color: var(--amarelo); }
-.rodape__redes { display: flex; gap: 6px; margin-top: 14px; margin-left: -10px; }
+.rodape__redes { margin-top: 16px; }
 .rodape__fim { border-top: 1px solid #26282d; padding-block: 16px calc(16px + var(--ancora, 0px)); font-size: 14px; color: #8f9197; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
 .rodape__direita { display: inline-flex; align-items: center; gap: 14px; }
 .assinatura { display: inline-flex; padding: 6px; margin: -6px; border-radius: 50%; color: #6b6e75; transition: color .2s, transform .25s var(--mola); }
